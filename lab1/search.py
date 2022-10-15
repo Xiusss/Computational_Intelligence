@@ -31,7 +31,7 @@ def tree_explorer_DF(sol, space, N):
         return isCorrect
     for l in space:
         local_s.append(l) # adding a new element in the possible solution
-
+        space = list(space).pop()
         global nodes
         nodes += 1
 
