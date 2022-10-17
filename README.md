@@ -1,7 +1,7 @@
-## Labs
+# Labs
 Laboratori svolti con @vmask25 e @Saccuz.
 
-# Lab1
+## Lab1
 Casi di test e soluzioni trovate(soluz. trovata/non trovata, soluzione, # ripetizioni di elementi)
 
 Visited nodes with BF: 584
