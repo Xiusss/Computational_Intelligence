@@ -1,5 +1,6 @@
 import random
 import search
+import logging
 
 def problem(N, seed=None):
     random.seed(seed)
@@ -10,14 +11,15 @@ def problem(N, seed=None):
 
 if __name__ == "__main__":
     seed = 42
-    """for N in [5, 10, 20, 100, 500, 1000]:
-        space = problem(N, seed)
+    
+    for N in [5,10,20,100,500,1000]:
+        space = problem(N,seed)
         space.sort(key=len)
-        solution = search.tree_explorer_DF([], space, N)
-        print(f"Possible solution DF for {N}: {solution} \n {len(solution[1])} with {sum(len(e) for e in solution[1])} elements")
-    """
+        solution = search.greedy_search(space, N)
+        logging.info(f"Existing solution for {N}: {len(solution)} with {sum(len(e) for e in solution)} elements")
+
     for N in [5, 10, 20, 100, 500, 1000]:
         space = problem(N, seed)
         space.sort(key=len)
         solution = search.tree_explorer_BF(space, N)
-        print(f"Optimal solution BF for N={N} : {solution} {len(solution[1])} sublists with {sum(len(e) for e in solution[1])} elements")
+        print(f"Optimal solution for {N}: {len(solution[1])} with {sum(len(e) for e in solution[1])} elements")
