@@ -4,14 +4,21 @@ Laboratori svolti con @vmask25 e @Saccuz.
 ## Lab1
 Casi di test e soluzioni trovate(soluz. trovata/non trovata, soluzione, # ripetizioni di elementi)
 
-Visited nodes with BF: 584
-Optimal solution BF for N=5 :
-(True, ([0], [1, 3], [2, 4]), 0.0) 3 sublists with 5 elements
 
-Visited nodes with BF: 4556
-Optimal solution BF for N=10 :
-(True, ([9, 6], [8, 2, 7], [0, 1, 3, 4, 5]), 0.0) 3 sublists with 10 elements
+10 	20875 	10
+20 	331211 	23
 
-Visited nodes with BF: 16018
-Optimal solution BF for N=20 :
-(True, ([8, 16, 5], [4, 6, 15, 17, 18], [2, 8, 12, 13, 14, 16, 17, 19], [0, 1, 3, 7, 9, 10, 11, 15]), 4.0) 4 sublists with 24 elements
+N = 5:
+Processed nodes with BF: 2625
+Number of elements in solution:5
+
+
+N = 10:
+Processed nodes with BF: 20875
+Number of elements in solution:10
+
+N = 20:
+Processed nodes with BF: 331211
+Number of elements in solution:23
+
+Per N = 50 e N=100 il tempo di calcolo esplode.
