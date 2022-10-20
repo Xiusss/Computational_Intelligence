@@ -9,7 +9,7 @@ Given a number $N$ and some lists of integers $P = (L_0, L_1, L_2, ..., L_n)$ de
 Using the [greedy algorithm](https://github.com/squillero/computational-intelligence/blob/master/2022-23/lab1_set-covering.ipynb) provided by Professor Squillero, we can prove that a solution exist for $N = 5, 10, 20, 100, 500, 1000$. However the one provided by the greedy algorithm is not necessarily the Optimal one, so we have to try a different approach.
 
 ### 2. Find the Optimal Solution
-To find the optimal solution, I opted for a Breadth First search using all the possible ordered combinations (without repetition).
+To find the optimal solution, I opted for a Breadth First search using all the possible ordered combinations (without repetition).  
 For every iteration _i_ of the loop I explore all the nodes of the _i-th_ level of the search tree.
 After the algorithm finds a solution, it still explores the subsequent level and, in case no better solution is found, it stops the execution, because the solution is already Optimal.
 
