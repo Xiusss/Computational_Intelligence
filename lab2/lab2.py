@@ -1,4 +1,6 @@
 import random
+import time
+
 import search
 
 def problem(N, seed=None):
@@ -21,8 +23,9 @@ if __name__ == "__main__":
     for N in [5, 10, 50, 100, 500, 1000, 2000, 5000]:
         space = list( _ for _ in set(tuple(sorted(set(_))) for _ in problem(N, seed)))
 
+        curr=time.time();
         how_many_covered, collisions, weight = search.evolutionary_solution(N, space, POPULATION_SIZE, OFFSPRING_SIZE, NUM_GENERATIONS)
-
+        print(f"TEMPO TRASCORSO: {time.time()-curr}")
         print(f"How many covered: {how_many_covered}")
         print(f"Collisions: {collisions}")
         print(f"Weight: {weight}")
