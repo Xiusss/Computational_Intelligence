@@ -1,2 +1,4 @@
 lab1/.vscode/settings.json
-lab1/__pycache__/search.cpython-310.pyc
+lab1/__pycache__/
+lab2/__pycache__/
+.idea/
