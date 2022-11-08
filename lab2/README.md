@@ -10,7 +10,7 @@ Given a number $N$ and some lists of integers $P = (L_0, L_1, L_2, ..., L_n)$ de
 Through the analysis of the results obtained in the first lab, we know that a solution exists. We are committed in finding the optimal one with a wide problem space, focusing on performance with greater values of N (like 2000, 5000 and 10000). 
 
 ### 2. Find the Optimal Solution
-We have two versions of the algorithm, in this repository there is the Version 1, and in the other teammates' repository there is the Version 2.\
+We have two versions of the algorithm, in this repository there is the Version 2, and in the other teammates' repository there is the Version 1.\
 In both cases, to find a good solution, we opted for a genetic algorithm where we represent each genome as a bitmap of 0's and only one "1" randomly chosen at the beginning to initialize the population. 
 
 ## Version 1
