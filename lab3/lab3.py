@@ -123,4 +123,3 @@ if __name__ == "__main__":
 
     print("Best genome overall:")
     print_genome(champion)
-    #
