@@ -76,7 +76,7 @@ if __name__ == "__main__":
     mean_ = 0
     win = 0
     lose = 0
-    champion = [0,[]]
+    champion = [0,[]] 
     genome = [.5]*len(nim.tactics)
     op_strat = ['dumb_strategy','pure random','gabriele','optimal']
 
