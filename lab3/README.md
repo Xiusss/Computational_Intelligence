@@ -61,7 +61,7 @@ An idea we didn't try to implement yet, is to have rules that are more "situatio
 
 ## Contributors
 
+- [Marco Sacchet](https://github.com/sacchet)
 - [Simone Mascali](https://github.com/vmask25)
-- [Fabrizio Sulpizio](https://github.com/Xiusss)
 
 Professor's repository took as reference: https://github.com/squillero/computational-intelligence
