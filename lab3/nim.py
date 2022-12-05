@@ -2,8 +2,6 @@ from collections import namedtuple
 from copy import deepcopy
 from typing import Callable
 import random
-from itertools import accumulate
-from operator import xor
 
 Nimply = namedtuple("Nimply", "row, num_objects")
 
@@ -52,8 +50,6 @@ class Strategy:
 # Sample (and silly) strategies
 
 def nim_sum(state: Nim) -> int:
-    # *_, result = accumulate(state.rows, xor)
-    # return result
     result = state.rows[0]
     for row in state.rows[1:]:
         result = result ^ row
@@ -70,6 +66,7 @@ def cook_status(state: Nim) -> dict:
     cooked['shortest_row'] = min((x for x in enumerate(state.rows) if x[1] > 0), key=lambda y: y[1])[0]
     cooked['longest_row'] = max((x for x in enumerate(state.rows)), key=lambda y: y[1])[0]
     cooked['nim_sum'] = nim_sum(state)
+    cooked['dumb_strategy'] = [x[0] for x in enumerate(state.rows) if x[1] > 0]
 
     brute_force = list()
     for m in cooked['possible_moves']:
@@ -97,6 +94,12 @@ def gabriele(state: Nim) -> Nimply:
     """Pick always the maximum possible number of the lowest row"""
     possible_moves = [(r, o) for r, c in enumerate(state.rows) for o in range(1, c + 1)]
     return Nimply(*max(possible_moves, key=lambda m: (-m[0], m[1])))
+
+
+def dumb_strategy(state: Nim) -> Nimply:
+    data = cook_status(state)
+    row = random.choice(data['dumb_strategy'])
+    return Nimply(row, 1)
 
 
 def shortest_row(state: Nim) -> Nimply:
@@ -134,12 +137,14 @@ def pick_odd_max(state: Nim) -> Nimply:
 
 
 def opponent_strategy(turn: int) -> Strategy:
-    if turn == 2:
+    if turn == 3:
         return Strategy([optimal_strategy])
-    elif turn == 1:
+    elif turn == 2:
         return Strategy([gabriele])
-    elif turn == 0:
+    elif turn == 1:
         return Strategy([pure_random])
+    elif turn == 0:
+        return Strategy([dumb_strategy])
 
 
 tactics = [gabriele, shortest_row, longest_row, pick_one_from_max, pick_one_from_min, pick_even_max, pick_odd_max]

@@ -11,7 +11,7 @@ Through the analysis of the results obtained in the first lab, we know that a so
 
 ### 2. Find the Optimal Solution
 To find the optimal solution, we opted for a genetic algorithm where we represent each genome as a bitmap of 0's and only one "1" randomly chosen.  
-With a tournament_size=2, we substitute a part of the population in order to keep the fittest at that iteration. The cross-over strategy we use composes the result picking a slice of random dimension from each of the parents.   
+With a tournament_size=2, using a lambda+mi strategy we substitute a part of the population in order to keep the fittest at that iteration. The cross-over strategy we use composes the result picking a slice of random dimension from each of the parents.   
 To determine the fitness of a potential solution we maximize the covered numbers and minimize the amount of collisions(maximizing -collisions).
 To prevent elitarism we apply a double mutation with a rate of 30%.
 With a reasonable time we achieve good solutions for high values of N.
