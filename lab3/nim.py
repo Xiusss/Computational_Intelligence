@@ -7,7 +7,7 @@ from operator import xor
 
 Nimply = namedtuple("Nimply", "row, num_objects")
 
-
+#
 class Nim:
     def __init__(self, num_rows: int, k: int = None) -> None:
         self._rows = [i * 2 + 1 for i in range(num_rows)]
