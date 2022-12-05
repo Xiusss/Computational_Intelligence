@@ -1,5 +1,5 @@
 # Laboratory 3 part 1: Nim
-#
+
 ## Task
 
 Write agents able to play Nim, with an arbitrary number of rows and an upper bound  on the number of objects that can be removed in a turn (a.k.a., subtraction game).
