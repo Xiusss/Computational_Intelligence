@@ -5,7 +5,6 @@ from copy import deepcopy
 
 Nimply = namedtuple("Nimply", "row, num_objects")
 
-
 # Nim class
 class Nim:
     def __init__(self, num_rows: int, k: int = None) -> None:
@@ -25,8 +24,8 @@ class Nim:
 
     @property
     def rows(self) -> tuple:
-        return tuple(self._rows) if len(self._rows) > 0 else tuple((0, 0))
-
+        return tuple(self._rows) if len(self._rows) > 0 else tuple((0,0))
+    
     @property
     def k(self) -> int:
         return self._k
@@ -39,13 +38,12 @@ class Nim:
         self._rows = sorted([x for x in self._rows if x > 0])
         return self
 
-
 # Strategy class
 class Strategy:
     def __init__(self, dna: list) -> None:
         self._dna = dna
         self._step = 0
-
+    
     def move(self) -> Callable:
         next_move = self._dna[self._step]
         self._step += 1
@@ -53,31 +51,26 @@ class Strategy:
             self._step = 0
         return next_move
 
-
 def pure_random(state: Nim) -> Nimply:
     row = random.choice([r for r, c in enumerate(state.rows) if c > 0])
     num_objects = random.randint(1, state.rows[row])
     return Nimply(row, num_objects)
 
-
 # Opponent strategy generator (based on the evolution turn)
 def opponent_strategy() -> Strategy:
     return Strategy([optimal_strategy])
 
-
-# Optimal function
+# Optimal function 
 def nim_sum(state: Nim) -> int:
     result = state.rows[0]
     for row in state.rows[1:]:
         result = result ^ row
     return result
 
-
 # Professor's cook_status to have all the cooked data inside a single dictionary
 def cook_status(state: Nim) -> dict:
     cooked = dict()
-    cooked['possible_moves'] = [(r, o) for r, c in enumerate(state.rows) for o in range(1, c + 1) if
-                                state.k is None or o <= state.k]
+    cooked['possible_moves'] = [(r, o) for r, c in enumerate(state.rows) for o in range(1, c + 1) if state.k is None or o <= state.k]
     cooked['nim_sum'] = nim_sum(state)
 
     brute_force = list()
@@ -88,7 +81,6 @@ def cook_status(state: Nim) -> dict:
     cooked['brute_force'] = brute_force
 
     return cooked
-
 
 def optimal_strategy(state: Nim) -> Nimply:
     data = cook_status(state)
