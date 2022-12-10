@@ -6,7 +6,7 @@ import nim
 from nim import Nim
 
 NIM_SIZE = 12
-DEPTH = 200000
+DEPTH = 100000
 dict_size = 0
 num_moves = 0
 
@@ -41,8 +41,6 @@ def evaluation(state: Nim) -> int:
 
 def minMax(state: Nim, dict_of_states: dict()):
     global dict_size
-
-    manage_depth()
 
     val = evaluation(state)
     if val != 0:
@@ -79,37 +77,37 @@ def minMax(state: Nim, dict_of_states: dict()):
 
 
 if __name__ == "__main__":
-    for nim_size in range(10):
-        start = time.time()
-        try:
-            dict_of_states = dict()
-            i = random.randint(0, 1)
-            print(f"Player: {1 - i}")
-            board = Nim(nim_size)
-            player2 = nim.opponent_strategy()
+    start = time.time()
+    try:
+        dict_of_states = dict()
+        i = random.randint(0, 1)
+        print(f"Player: {1 - i}")
+        board = Nim(NIM_SIZE)
+        player2 = nim.opponent_strategy()
+
+        print(board)
+
+        while board:
+            if i % 2 != 0:
+                player = 0
+                ply, _ = minMax(board, dict_of_states)
+                manage_depth()
+            else:
+                player = 1
+                opponent = player2.move()
+                ply = opponent(board)
+
+            board.nimming(ply)
+            i += 1
 
             print(board)
 
-            while board:
-                if i % 2 != 0:
-                    player = 0
-                    ply, _ = minMax(board, dict_of_states)
-                else:
-                    player = 1
-                    opponent = player2.move()
-                    ply = opponent(board)
+        if player == 1:
+            print("YOU LOSE")
+        else:
+            print("YOU WIN")
 
-                board.nimming(ply)
-                i += 1
+        statistics(dict_of_states, start)
 
-                print(board)
-
-            if player == 1:
-                print("YOU LOSE")
-            else:
-                print("YOU WIN")
-
-            statistics(dict_of_states, start)
-
-        except KeyboardInterrupt:  # for debug purpose
-            statistics(dict_of_states, start)
+    except KeyboardInterrupt:  # for debug purpose
+        statistics(dict_of_states, start)
