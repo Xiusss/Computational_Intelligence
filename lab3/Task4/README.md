@@ -30,7 +30,7 @@ Unfortunately we can not say the same against the optimal strategy, where we can
 ## Contributors
 
 - [Simone Mascali](https://github.com/vmask25)
-- [Fabrizio Sulpizio](https://github.com/Xiusss)
+- [Marco Saccchet](https://github.com/saccuz)
 
 Professor's repository took as reference: https://github.com/squillero/computational-intelligence
 
