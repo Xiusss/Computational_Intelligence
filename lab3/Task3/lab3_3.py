@@ -91,7 +91,7 @@ if __name__ == "__main__":
         # Dictionary that contains the possible states as keys and tuples (ply, ply "goodness") as values
         dict_of_states = dict()
         # Turn identifier
-        i = random.randint(0,1)
+        i = random.randint(0, 1)
         if i == 0:
             print("First player: opponent")
         else:
@@ -106,6 +106,7 @@ if __name__ == "__main__":
         # Game
         while board:
             # Min Max turn
+
             if i % 2 != 0:
                 player = 0
                 ply, _ = minMax(board, dict_of_states)
