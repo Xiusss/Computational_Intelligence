@@ -28,6 +28,6 @@ In this graph we can see time required for playing the Nim game with increasing 
 ## Contributors
 
 - [Simone Mascali](https://github.com/vmask25)
-- [Fabrizio Sulpizio](https://github.com/Xiusss)
+- [Marco Sacchet](https://github.com/saccuz)
 
 Professor's repository took as reference: https://github.com/squillero/computational-intelligence
